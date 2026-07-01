@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- Tab切换 -->
+  <view class="tab-bar">
+    <view class="tab-item {{currentTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">全部</view>
+    <view class="tab-item {{currentTab === 'pending' ? 'active' : ''}}" bindtap="switchTab" data-tab="pending">待确认</view>
+    <view class="tab-item {{currentTab === 'making' ? 'active' : ''}}" bindtap="switchTab" data-tab="making">制作中</view>
+    <view class="tab-item {{currentTab === 'done' ? 'active' : ''}}" bindtap="switchTab" data-tab="done">已完成</view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view wx:if="{{filteredOrders.length === 0}}" class="empty-state">
+      <text class="empty-icon">📭</text>
+      <text class="empty-text">暂无订单</text>
+      <text class="empty-desc">去首页预览装裱效果并下单吧</text>
+    </view>
+
+    <view class="order-card" wx:for="{{filteredOrders}}" wx:key="orderNo" bindtap="goToDetail" data-index="{{index}}">
+      <view class="order-header">
+        <text class="order-id">订单号：{{item.orderNo}}</text>
+        <text class="order-status {{item.status}}">{{item.status === 'pending' ? '待确认' : item.status === 'confirmed' ? '已确认' : item.status === 'making' ? '制作中' : '已完成'}}</text>
+      </view>
+      <view class="order-body">
+        <view class="order-image" style="background: #E8DDD0;">
+          <text class="order-emoji">🖼️</text>
+        </view>
+        <view class="order-info">
+          <text class="order-name">{{item.workName || '未命名作品'}}</text>
+          <text class="order-desc">{{item.frameName || '未选择画框'}} · {{item.framingType || '框裱'}}</text>
+          <text class="order-size">{{item.workWidth}} × {{item.workHeight}} cm</text>
+        </view>
+      </view>
+      <view class="order-footer">
+        <text class="order-price">¥{{item.totalPrice || 0}}</text>
+        <text class="order-time">{{item.createTime || ''}}</text>
+      </view>
+    </view>
+  </view>
+</view>

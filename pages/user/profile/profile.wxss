@@ -1,0 +1,168 @@
+/* ===== 页面背景 ===== */
+page {
+  background-color: #F8F4EF;
+}
+
+/* ===== 容器 ===== */
+.profile-container {
+  padding: 20px;
+  background: #F8F4EF;
+  min-height: 100vh;
+}
+
+/* ===== 用户卡片 ===== */
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #8B6B4D, #6B4F3A);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(139, 107, 77, 0.3);
+}
+.user-avatar {
+  font-size: 56px;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.user-avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.user-info {
+  flex: 1;
+}
+.user-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.user-phone {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.user-badge {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+/* ===== 订单统计 ===== */
+.stats-card {
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 16px 0;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3D2B1F;
+}
+.stat-number.pending {
+  color: #FAAD14;
+}
+.stat-number.making {
+  color: #5C6BC0;
+}
+.stat-number.done {
+  color: #52C41A;
+}
+.stat-label {
+  font-size: 12px;
+  color: #999;
+}
+.stat-divider {
+  width: 1px;
+  background: #F0EBE3;
+}
+
+/* ===== 功能菜单 ===== */
+.menu-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+}
+.menu-icon {
+  font-size: 22px;
+  margin-right: 14px;
+}
+.menu-label {
+  flex: 1;
+  font-size: 15px;
+  color: #3D2B1F;
+}
+.menu-arrow {
+  font-size: 14px;
+  color: #CCC;
+}
+.menu-divider {
+  height: 1px;
+  background: #F5F0EB;
+  margin: 0 -16px;
+}
+.menu-item.danger .menu-label {
+  color: #E74C3C;
+}
+
+/* ===== 门店信息 ===== */
+.store-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.store-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3D2B1F;
+}
+.store-row {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  gap: 8px;
+}
+.store-phone {
+  color: #8B6B4D;
+}
+
+/* ===== 底部版本 ===== */
+.footer {
+  text-align: center;
+  padding: 20px 0 10px;
+}
+.footer-text {
+  font-size: 12px;
+  color: #CCC;
+}

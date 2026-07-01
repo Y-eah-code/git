@@ -1,0 +1,84 @@
+<view class="profile-container">
+
+<!-- 用户卡片 -->
+<view class="user-card" bindtap="getUserInfo">
+  <view class="user-avatar">
+    <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}"></image>
+    <text wx:else>🧑‍🎨</text>
+  </view>
+  <view class="user-info">
+    <view class="user-name">{{userInfo.nickName || '点击授权登录'}}</view>
+    <view class="user-phone">{{userInfo.phone || '点击授权手机号'}}</view>
+  </view>
+  <view class="user-badge">已登录</view>
+</view>
+
+<!-- 订单统计 -->
+<view class="stats-card">
+  <view class="stat-item" bindtap="goToOrders">
+    <view class="stat-number">{{allCount}}</view>
+    <view class="stat-label">全部</view>
+  </view>
+  <view class="stat-divider"></view>
+  <view class="stat-item" bindtap="goToOrders">
+    <view class="stat-number pending">{{pendingCount}}</view>
+    <view class="stat-label">待确认</view>
+  </view>
+  <view class="stat-divider"></view>
+  <view class="stat-item" bindtap="goToOrders">
+    <view class="stat-number making">{{makingCount}}</view>
+    <view class="stat-label">制作中</view>
+  </view>
+  <view class="stat-divider"></view>
+  <view class="stat-item" bindtap="goToOrders">
+    <view class="stat-number done">{{doneCount}}</view>
+    <view class="stat-label">已完成</view>
+  </view>
+</view>
+
+<!-- 功能菜单 -->
+<view class="menu-card">
+  <view class="menu-item" bindtap="goToOrders">
+    <view class="menu-icon">📋</view>
+    <view class="menu-label">我的订单</view>
+    <view class="menu-arrow">›</view>
+  </view>
+  <view class="menu-divider"></view>
+  <view class="menu-item" bindtap="goToWorks">
+    <view class="menu-icon">🎨</view>
+    <view class="menu-label">我的作品库</view>
+    <view class="menu-arrow">›</view>
+  </view>
+  <view class="menu-divider"></view>
+  <view class="menu-item" bindtap="goToStore">
+    <view class="menu-icon">🏠</view>
+    <view class="menu-label">门店信息</view>
+    <view class="menu-arrow">›</view>
+  </view>
+  <view class="menu-divider"></view>
+  <view class="menu-item" bindtap="callPhone">
+    <view class="menu-icon">📞</view>
+    <view class="menu-label">联系店家</view>
+    <view class="menu-arrow">›</view>
+  </view>
+  <view class="menu-divider"></view>
+  <view class="menu-item danger" bindtap="clearData">
+    <view class="menu-icon">🗑️</view>
+    <view class="menu-label">清除测试数据</view>
+    <view class="menu-arrow">›</view>
+  </view>
+</view>
+
+<!-- 门店信息 -->
+<view class="store-card">
+  <view class="store-title">🏠 装裱大师 · 门店</view>
+  <view class="store-row"><text>📍</text><text>山西省晋中市榆次区xxx路xxx号</text></view>
+  <view class="store-row"><text>🕐</text><text>9:00 - 18:00（周一至周日）</text></view>
+  <view class="store-row"><text>📞</text><text class="store-phone" bindtap="callPhone">138-0000-0000</text></view>
+</view>
+
+<!-- 底部 -->
+<view class="footer">
+  <text class="footer-text">装裱大师 V1.0</text>
+</view>
+</view>

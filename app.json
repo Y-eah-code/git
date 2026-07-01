@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/preview/preview",
+    "pages/order/create/create",
+    "pages/order/list/list",
+    "pages/user/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "装裱大师",
+    "navigationBarBackgroundColor": "#8B6B4D",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F8F4EF"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#8B6B4D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png"
+      },
+      {
+        "pagePath": "pages/preview/preview",
+        "text": "预览",
+        "iconPath": "images/preview.png",
+        "selectedIconPath": "images/preview_active.png"
+      },
+      {
+        "pagePath": "pages/order/list/list",
+        "text": "订单",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order_active.png"
+      },
+      {
+        "pagePath": "pages/user/profile/profile",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,100 @@
+<!-- 顶部品牌区 -->
+<view class="brand-bar">
+  <view class="brand-left">
+    <view class="brand-icon">🖼️</view>
+    <view class="brand-text">
+      <text class="brand-name">装裱大师</text>
+      <text class="brand-slogan">匠心装裱 · 字画传承</text>
+    </view>
+  </view>
+  <view class="brand-right" bindtap="callPhone">
+    <text class="icon-phone">📞</text>
+  </view>
+</view>
+
+<!-- 主视觉Banner -->
+<view class="hero-section">
+  <swiper class="hero-swiper" indicator-dots="true" autoplay="true" interval="3000" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#C4A882">
+    <swiper-item>
+      <view class="hero-slide" style="background: linear-gradient(135deg, #8B6B4D, #6B4F3A);">
+        <text class="hero-title">字画装裱</text>
+        <text class="hero-sub">让每一幅作品都更有价值</text>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="hero-slide" style="background: linear-gradient(135deg, #5A7A6A, #3D5A4A);">
+        <text class="hero-title">在线预览</text>
+        <text class="hero-sub">选画框 · 看效果 · 一键定制</text>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="hero-slide" style="background: linear-gradient(135deg, #A67B6B, #8B6B4D);">
+        <text class="hero-title">同城配送</text>
+        <text class="hero-sub">足不出户 · 送到家门口</text>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 核心入口 -->
+<view class="entry-section">
+  <view class="entry-card" bindtap="goToPreview">
+    <view class="entry-icon-wrap">
+      <text class="entry-icon-big">✨</text>
+    </view>
+    <view class="entry-content">
+      <text class="entry-title">开始装裱预览</text>
+      <text class="entry-desc">上传字画 → 挑选画框 → 实时预览效果</text>
+    </view>
+    <text class="entry-arrow">›</text>
+  </view>
+</view>
+
+<!-- 快捷功能 -->
+<view class="quick-actions">
+  <view class="quick-item" bindtap="goToOrders">
+    <text class="quick-icon">📋</text>
+    <text class="quick-label">我的订单</text>
+  </view>
+  <view class="quick-item" bindtap="goToWorks">
+    <text class="quick-icon">🎨</text>
+    <text class="quick-label">作品库</text>
+  </view>
+</view>
+
+<!-- 门店信息 -->
+<view class="store-section">
+  <view class="section-header">
+    <text class="section-title">🏠 门店信息</text>
+  </view>
+  <view class="store-card">
+    <view class="store-row">
+      <text class="store-icon">📍</text>
+      <text class="store-text">山西省临汾市尧都区鼓楼北王麻子巷点睛阁</text>  <!-- 改成你店的实际地址 -->
+    </view>
+    <view class="store-row">
+      <text class="store-icon">🕐</text>
+      <text class="store-text">9:00 - 18:00（周一至周日）</text>  <!-- 改成你的实际营业时间 -->
+    </view>
+    <view class="store-row">
+      <text class="store-icon">📞</text>
+      <text class="store-text">189-0357-8088</text>  <!-- 改成你的实际电话 -->
+    </view>
+  </view>
+</view>
+
+<!-- 案例展示 -->
+<view class="cases-section">
+  <view class="section-header">
+    <text class="section-title">🖼️ 装裱案例</text>
+    <text class="section-more">更多 ›</text>
+  </view>
+  <view class="cases-grid">
+    <view class="case-item" wx:for="{{caseList}}" wx:key="index">
+      <view class="case-image" style="background: {{item.bg}};">
+        <text class="case-emoji">{{item.emoji}}</text>
+      </view>
+      <text class="case-name">{{item.name}}</text>
+    </view>
+  </view>
+</view>

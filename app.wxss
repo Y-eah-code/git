@@ -1,0 +1,17 @@
+page {
+  background-color: #F8F4EF;
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  color: #3D2B1F;
+}
+
+/* 通用按钮样式备用 */
+.btn-primary {
+  background: linear-gradient(135deg, #8B6B4D, #6B4F3A);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}

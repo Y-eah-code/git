@@ -1,0 +1,82 @@
+<!-- 顶部步骤指示器 -->
+<view class="step-bar">
+  <view class="step-item {{step >= 1 ? 'active' : ''}}">
+    <view class="step-circle">1</view>
+    <text class="step-label">上传</text>
+  </view>
+  <view class="step-line {{step >= 2 ? 'active' : ''}}"></view>
+  <view class="step-item {{step >= 2 ? 'active' : ''}}">
+    <view class="step-circle">2</view>
+    <text class="step-label">裁剪</text>
+  </view>
+  <view class="step-line {{step >= 3 ? 'active' : ''}}"></view>
+  <view class="step-item {{step >= 3 ? 'active' : ''}}">
+    <view class="step-circle">3</view>
+    <text class="step-label">选框</text>
+  </view>
+  <view class="step-line {{step >= 4 ? 'active' : ''}}"></view>
+  <view class="step-item {{step >= 4 ? 'active' : ''}}">
+    <view class="step-circle">4</view>
+    <text class="step-label">预览</text>
+  </view>
+</view>
+
+<!-- 预览区域 -->
+<view class="preview-area">
+  <view wx:if="{{!uploadedImage}}" class="upload-placeholder" bindtap="chooseImage">
+    <text class="upload-icon">🖼️</text>
+    <text class="upload-title">点击上传字画</text>
+    <text class="upload-desc">支持拍照或从相册选择</text>
+  </view>
+  <view wx:else class="preview-wrapper">
+    <canvas type="2d" id="previewCanvas" class="preview-canvas"></canvas>
+  </view>
+</view>
+
+<!-- 操作区 -->
+<view class="action-area">
+  <!-- 画框选择 -->
+  <view class="action-section" wx:if="{{step >= 3}}">
+    <view class="section-header">
+      <text class="section-title">🖼️ 选择画框</text>
+    </view>
+    <scroll-view class="frame-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="frame-list">
+        <view class="frame-item {{selectedFrameId === item.id ? 'selected' : ''}}" 
+              wx:for="{{frameList}}" wx:key="id" 
+              bindtap="selectFrame" data-id="{{item.id}}">
+          <view class="frame-color" style="background: {{item.color}};"></view>
+          <text class="frame-name">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 卡纸颜色选择 -->
+  <view class="action-section" wx:if="{{step >= 3}}">
+    <view class="section-header">
+      <text class="section-title">🎨 卡纸颜色</text>
+    </view>
+    <scroll-view class="mat-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="mat-list">
+        <view class="mat-item {{selectedMat === item.color ? 'selected' : ''}}" 
+              wx:for="{{matList}}" wx:key="id"
+              bindtap="selectMat" data-color="{{item.color}}">
+          <view class="mat-color" style="background: {{item.color}};"></view>
+          <text class="mat-name">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-actions">
+    <view wx:if="{{step < 3}}" class="btn-next" bindtap="nextStep">
+      <text>{{step === 1 ? '下一步：裁剪' : '下一步：选画框'}}</text>
+    </view>
+    <view wx:else class="btn-group">
+      <view class="btn-save" bindtap="saveImage">💾 保存效果图</view>
+      <view class="btn-order" bindtap="goToOrder">立即定制 →</view>
+    </view>
+  </view>
+</view>
