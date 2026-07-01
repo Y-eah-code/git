@@ -4,7 +4,8 @@
     "pages/preview/preview",
     "pages/order/create/create",
     "pages/order/list/list",
-    "pages/user/profile/profile"
+    "pages/user/profile/profile",
+    "pages/cases/cases"
   ],
   "window": {
     "navigationBarTitleText": "装裱大师",

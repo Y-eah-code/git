@@ -1,0 +1,28 @@
+<!-- 顶部标题 -->
+<view class="page-header">
+  <text class="page-title">🖼️ 全部装裱案例</text>
+  <text class="page-desc">精选各类装裱风格，为您提供灵感</text>
+</view>
+
+<!-- 案例列表 -->
+<view class="cases-list">
+  <view class="case-card" wx:for="{{caseList}}" wx:key="index" bindtap="goToDetail" data-index="{{index}}">
+    <view class="case-image" style="background: {{item.bg}};">
+      <text class="case-emoji">{{item.emoji}}</text>
+    </view>
+    <view class="case-info">
+      <text class="case-name">{{item.name}}</text>
+      <text class="case-desc">{{item.desc || '经典装裱风格，适合多种场景'}}</text>
+      <view class="case-tags">
+        <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+    <text class="case-arrow">›</text>
+  </view>
+</view>
+
+<!-- 空状态 -->
+<view class="empty-state" wx:if="{{caseList.length === 0}}">
+  <text class="empty-icon">📭</text>
+  <text class="empty-text">暂无案例</text>
+</view>

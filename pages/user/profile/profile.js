@@ -22,35 +22,37 @@ Page({
     this.setData({ userInfo })
   },
 
-  // 获取用户信息（点击头像触发）
-  getUserInfo() {
-    wx.getUserProfile({
-      desc: '用于完善个人资料',
-      success: (res) => {
-        const userInfo = res.userInfo
-        wx.setStorageSync('userInfo', {
+  // 获取用户信息（通过 button 的 open-type 触发）
+  getUserInfo(e) {
+    if (e.detail.userInfo) {
+      const userInfo = e.detail.userInfo
+      wx.setStorageSync('userInfo', {
+        nickName: userInfo.nickName,
+        avatarUrl: userInfo.avatarUrl,
+        phone: this.data.userInfo.phone || ''
+      })
+      this.setData({
+        userInfo: {
+          ...this.data.userInfo,
           nickName: userInfo.nickName,
-          avatarUrl: userInfo.avatarUrl,
-          phone: this.data.userInfo.phone || ''
-        })
-        this.setData({ userInfo: { ...this.data.userInfo, nickName: userInfo.nickName, avatarUrl: userInfo.avatarUrl } })
-        wx.showToast({ title: '授权成功', icon: 'success' })
-      },
-      fail: () => {
-        wx.showToast({ title: '已取消授权', icon: 'none' })
-      }
-    })
+          avatarUrl: userInfo.avatarUrl
+        }
+      })
+      wx.showToast({ title: '授权成功', icon: 'success' })
+    } else {
+      wx.showToast({ title: '已取消授权', icon: 'none' })
+    }
   },
 
   // 获取手机号（点击手机号触发）
   getPhoneNumber(e) {
     if (e.detail.errMsg === 'getPhoneNumber:ok') {
-      // 实际开发中，这里需要调用云函数解密手机号
-      wx.showToast({ title: '手机号授权成功', icon: 'success' })
-      const phone = '138****0000' // 演示数据
+      // 演示数据，真实环境需后端解密
+      const phone = '138****' + String(Math.floor(1000 + Math.random() * 9000))
       const userInfo = { ...this.data.userInfo, phone: phone }
       wx.setStorageSync('userInfo', userInfo)
       this.setData({ userInfo })
+      wx.showToast({ title: '手机号授权成功', icon: 'success' })
     } else {
       wx.showToast({ title: '已取消授权', icon: 'none' })
     }
@@ -81,8 +83,9 @@ Page({
   // 门店信息
   goToStore() {
     wx.showModal({
-      title: '🏠 门店信息',
-      content: '地址：山西省晋中市榆次区xxx路xxx号\n营业时间：9:00-18:00\n电话：138-0000-0000',
+      title: '门店信息',
+      content: '地址：山西省临汾市尧都区鼓楼北王麻子巷福强画院点睛阁\n营业时间：9:00-18:00\n电话：189-0357-8088',
+      showCancel: false,
       confirmText: '知道了'
     })
   },
@@ -90,7 +93,7 @@ Page({
   // 联系店家
   callPhone() {
     wx.makePhoneCall({
-      phoneNumber: '13800000000'
+      phoneNumber: '18903578088'
     })
   }
 })

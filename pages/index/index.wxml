@@ -3,7 +3,7 @@
   <view class="brand-left">
     <view class="brand-icon">🖼️</view>
     <view class="brand-text">
-      <text class="brand-name">装裱大师</text>
+      <text class="brand-name">福强画院点睛阁</text>
       <text class="brand-slogan">匠心装裱 · 字画传承</text>
     </view>
   </view>
@@ -52,14 +52,17 @@
 
 <!-- 快捷功能 -->
 <view class="quick-actions">
-  <view class="quick-item" bindtap="goToOrders">
-    <text class="quick-icon">📋</text>
-    <text class="quick-label">我的订单</text>
-  </view>
-  <view class="quick-item" bindtap="goToWorks">
-    <text class="quick-icon">🎨</text>
-    <text class="quick-label">作品库</text>
-  </view>
+  <view class="quick-item pickup" bindtap="goToPickup">
+  <text class="quick-icon">🏠</text>
+  <text class="quick-label">自取</text>
+  <text class="quick-tag">到店自提</text>
+</view>
+
+<view class="quick-item delivery" bindtap="goToDelivery">
+  <text class="quick-icon">🛵</text>
+  <text class="quick-label">外送</text>
+  <text class="quick-tag">先填地址</text>
+</view>
 </view>
 
 <!-- 门店信息 -->
@@ -70,15 +73,15 @@
   <view class="store-card">
     <view class="store-row">
       <text class="store-icon">📍</text>
-      <text class="store-text">山西省临汾市尧都区鼓楼北王麻子巷点睛阁</text>  <!-- 改成你店的实际地址 -->
+      <text class="store-text">山西省临汾市尧都区鼓楼北王麻子巷点睛阁</text> 
     </view>
     <view class="store-row">
       <text class="store-icon">🕐</text>
-      <text class="store-text">9:00 - 18:00（周一至周日）</text>  <!-- 改成你的实际营业时间 -->
+      <text class="store-text">9:00 - 18:00（周一至周日）</text> 
     </view>
     <view class="store-row">
       <text class="store-icon">📞</text>
-      <text class="store-text">189-0357-8088</text>  <!-- 改成你的实际电话 -->
+      <text class="store-text">189-0357-8088</text> 
     </view>
   </view>
 </view>
@@ -87,7 +90,7 @@
 <view class="cases-section">
   <view class="section-header">
     <text class="section-title">🖼️ 装裱案例</text>
-    <text class="section-more">更多 ›</text>
+    <text class="section-more" bindtap="goToMore">更多 ›</text>
   </view>
   <view class="cases-grid">
     <view class="case-item" wx:for="{{caseList}}" wx:key="index">

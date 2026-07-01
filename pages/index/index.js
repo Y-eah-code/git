@@ -8,32 +8,51 @@ Page({
     ]
   },
 
-  // 打电话
   callPhone() {
     wx.makePhoneCall({
       phoneNumber: '18903578088'
     })
   },
 
-  // 跳转预览页
   goToPreview() {
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/preview/preview'
     })
   },
 
-  // 跳转订单列表
-  goToOrders() {
-  wx.switchTab({
-    url: '/pages/order/list/list'
-  })
-},
+  // 👇 自取
+  goToPickup() {
+    wx.switchTab({
+      url: '/pages/preview/preview?mode=pickup'
+    })
+  },
 
-  // 跳转作品库
-  goToWorks() {
-    wx.showToast({
-      title: '作品库开发中',
-      icon: 'none'
+  // 👇 外送：填地址 → 跳转 preview
+  goToDelivery() {
+    wx.showModal({
+      title: '填写收货地址',
+      editable: true,
+      placeholderText: '请输入详细地址（如：临汾市尧都区xx路xx号）',
+      confirmText: '确认地址',
+      success: (res) => {
+        if (res.confirm && res.content) {
+          const address = encodeURIComponent(res.content);
+          wx.switchTab({
+            url: `/pages/preview/preview?mode=delivery&address=${address}`
+          })
+        } else if (res.confirm && !res.content) {
+          wx.showToast({
+            title: '地址不能为空',
+            icon: 'none'
+          })
+        }
+      }
+    })
+  },
+  // 跳转更多案例
+  goToMore() {
+    wx.navigateTo({
+      url: '/pages/cases/cases'
     })
   }
 })

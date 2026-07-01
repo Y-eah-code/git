@@ -1,0 +1,112 @@
+/* 页面头部 */
+.page-header {
+  background: linear-gradient(135deg, #8B6B4D, #6B4F3A);
+  padding: 50rpx 30rpx 40rpx;
+  color: #fff;
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  display: block;
+}
+
+.page-desc {
+  font-size: 26rpx;
+  opacity: 0.8;
+  margin-top: 10rpx;
+  display: block;
+}
+
+/* 案例列表 */
+.cases-list {
+  padding: 20rpx 30rpx;
+  padding-bottom: 120rpx;
+}
+
+/* 案例卡片 */
+.case-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.06);
+  transition: all 0.3s;
+}
+
+.case-card:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.case-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+  flex-shrink: 0;
+}
+
+.case-info {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.case-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  display: block;
+}
+
+.case-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+  display: block;
+}
+
+.case-tags {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 10rpx;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 20rpx;
+  color: #8B6B4D;
+  background: #F5F0EB;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.case-arrow {
+  font-size: 36rpx;
+  color: #ccc;
+  margin-left: 10rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999;
+}
